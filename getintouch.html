@@ -1,0 +1,896 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+  <title>Riha Design Studio</title>
+<link rel="icon" type="image/png" href="imgs/Untitled design (87).png">
+  <link rel="icon" href="imgs/Untitled design (87).png" sizes="32x32" type="image/png">
+<link rel="icon" href="imgs/Untitled design (87).png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="imgs/Untitled design (87).png">
+
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:opsz,wght@7..60,400;7..60,700&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --accent-green: #7f937f;     /* muted green */
+      --text-dark: #222;
+      --muted: #7b7b7b;
+      --max-width:1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
+    body{
+      color:var(--text-dark);
+      background:#fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* ---------- Header ---------- */
+    header{
+      position:fixed;
+      top:0;left:0;right:0;
+      height:92px;
+      display:flex;
+      align-items:center;
+      z-index:50;
+      background:rgba(255,255,255,0.98);
+      border-bottom:1px solid rgba(0,0,0,0.04);
+      backdrop-filter: blur(4px);
+    }
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 28px;width:100%}
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;width:100%;
+    }
+    .brand{
+      display:flex;align-items:center;gap:18px;
+    }
+    .brand .logo{
+      width:92px;height:40px;
+      background:transparent;
+      display:flex;align-items:center;justify-content:center;
+      font-family:"Cormorant Garamond", serif;
+      color:var(--accent-green);
+      font-size:30px;letter-spacing:2px;font-weight:500;
+    }
+    nav ul{display:flex;gap:34px;align-items:center;margin:0;padding:0;list-style:none}
+    nav a{
+      font-size:15px;color:var(--accent-green);
+      text-decoration:none;font-weight:500;
+      letter-spacing:2px;
+      opacity:0.98;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero-wrap{
+      margin-top:92px;
+      width:100%;
+      min-height:72vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-bg{
+      position:absolute;inset:0;
+      background-image:  url("imgs/Untitled\ design\ \(83\).png");
+      background-size:cover;
+      background-position:center center;
+      filter: saturate(0.85) contrast(0.95);
+      transform: scale(1.02);
+    }
+    .hero-overlay{
+      position:absolute;inset:0;
+      background:linear-gradient(rgba(22,22,22,0.28), rgba(22,22,22,0.28));
+      mix-blend-mode: multiply;
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:3;
+      width:100%;
+      max-width:1400px;
+      padding:64px 28px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      pointer-events:none;
+    }
+
+    .headline{
+      text-align:center;
+      color: #fff;
+      font-family: "Cormorant Garamond", serif;
+      font-weight:400;
+      font-size:80px;
+      line-height:0.95;
+      letter-spacing:6px;
+      text-transform:uppercase;
+      margin:0;
+      margin-bottom:10px;
+      -webkit-text-stroke: 0.5px rgba(0,0,0,0.08);
+    }
+    .subheadline{
+      color:#e9ecec;
+      font-family: "Montserrat", sans-serif;
+      font-size:38px;
+      letter-spacing:6px;
+      margin-top:6px;
+    }
+
+    .hero-caption{
+      position:absolute;
+      bottom:22px;
+      left:50%;
+      transform:translateX(-50%);
+      color: rgba(255,255,255,0.9);
+      font-size:13px;
+      font-weight:600;
+      background:linear-gradient(transparent, transparent);
+      padding:8px 14px;
+      border-radius:4px;
+      pointer-events:auto;
+    }
+
+    /* ---------- About Section ---------- */
+    .about-section {
+      padding: 100px 28px;
+      background:#fff;
+    }
+
+    .about-container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .about-text {
+      flex: 1 1 480px;
+      font-family: "Montserrat", sans-serif;
+      color: var(--text-dark);
+    }
+
+    .about-text h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 34px;
+      letter-spacing: 3px;
+      font-weight: 600;
+      color: var(--accent-green);
+      margin-bottom: 24px;
+    }
+
+    .about-text p {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 18px;
+      color: #333;
+    }
+
+    .about-image {
+      flex: 1 1 420px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .about-image img {
+      width: 100%;
+      max-width: 460px;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+
+    /* ---------- Footer ---------- */
+    footer{
+      border-top:1px solid rgba(0,0,0,0.06);
+      padding:28px 0;
+      background:#fff;
+    }
+    .footer-grid{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:0 28px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .footer-left{
+      display:flex;align-items:center;gap:12px;color:var(--muted);
+      font-size:14px;
+    }
+    .footer-left .ig{
+      width:22px;height:22px;border-radius:50%;border:1px solid rgba(0,0,0,0.08);
+      display:inline-flex;align-items:center;justify-content:center;
+      font-size:12px;color:var(--accent-green)
+    }
+    .footer-right{
+      color:var(--muted);text-align:right;font-size:14px;
+    }
+
+    /* ---------- Responsive tweaks ---------- */
+    @media (max-width:1100px){
+      .headline{font-size:86px;letter-spacing:5px}
+      nav ul{gap:22px}
+    }
+    @media (max-width:900px) {
+      .about-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .about-image {
+        margin-top: 30px;
+      }
+    }
+    @media (max-width:780px){
+      header{height:76px}
+      .brand .logo{width:72px;font-size:24px}
+      .headline{font-size:44px;letter-spacing:4px}
+      .subheadline{font-size:14px;letter-spacing:3px}
+      .hero-wrap{min-height:62vh}
+      nav ul{display:none}
+      .hero-caption{font-size:12px}
+    }
+
+    /* fade-in animation */
+    .fade-in{opacity:0;transform:translateY(6px);transition:opacity .7s ease, transform .7s ease}
+    .fade-in.show{opacity:1;transform:none}
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="nav">
+        <div class="brand">
+         <div class="logo" aria-hidden="true">
+  <img src="imgs/Untitled design (84).png" alt="Company Logo">
+</div>
+        </div>
+
+        <nav aria-label="Top navigation">
+          <ul>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#projects">PROJECTS</a></li>
+            <li><a href="#media">MEDIA</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-wrap" id="home" role="region" aria-label="Hero">
+      <div class="hero-bg" role="img" aria-label="Hero background"></div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <div>
+          <h1 class="headline fade-in" id="headline">Riha Design Studio</h1>
+          <div class="subheadline fade-in" style="transition-delay:.08s"></div>
+        </div>
+      </div>
+
+      <div class="hero-caption fade-in" style="transition-delay:.18s"></div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about-section">
+      <div class="about-container">
+        <div class="about-text">
+          <h2>ABOUT US</h2>
+          <p>
+  At RIHA Design Studio, our philosophy is rooted in the belief that design is not just about spaces. 
+  It’s about shaping experiences. As the founder and principal architect, I envisioned a studio that goes 
+  beyond conventional boundaries, integrating architecture, interior design, and turnkey solutions under one roof.
+</p>
+<p>
+  Our approach is holistic.<br>
+  We design with intention, build with precision, and deliver with passion. Every project we undertake is a 
+  reflection of our commitment to thoughtful design, contextual sensitivity, and functional elegance. 
+  From concept to completion, we ensure each space resonates with the people who inhabit it.
+</p>
+<p>
+  RIHA is more than a studio; it is a collaborative platform where creativity meets craftsmanship. 
+  We strive to transform ideas into spaces that inspire, nurture, and elevate everyday living.
+</p>
+<p>
+  Welcome to our world of design.
+</p>
+
+        </div>
+
+        <div class="about-image">
+          <img src="imgs/Untitled design (85).png" alt="About Shreya Mago Designs" />
+        </div>
+      </div>
+    </section>
+    
+
+<!-- 🌿 Project Section Start -->
+<section class="project-section">
+  <h1 class="project-heading">Projects</h1>
+
+  <!-- Project 1 -->
+  <div class="project-wrapper">
+    <div class="project-text">
+      <h2 class="project-title">PROJECT PRIYA'S SANCTUARY</h2>
+      <p><strong>Category:</strong> Residential</p>
+      <p><strong>Location:</strong> Chennai</p>
+      <p>
+        A neutral palette of whites, creams, and warm wood tones unifies the space, 
+        while an intricately crafted jail door at the entrance pays homage to the family’s 
+        Jaipur roots. Each room reflects its occupant’s personality, with thoughtful details 
+        like paneling, a traditional bar in the dining area, gold accents, and glass lighting 
+        adding character and cohesion.
+      </p>
+      <p>
+        Anchored in timeless elegance, the home balances modern sophistication with cultural 
+        nuances, creating a soulful sanctuary.
+      </p>
+    </div>
+    <div class="project-image">
+      <img src="imgs/_X6A0147.JPG" alt="Project Gera Abode Interior">
+    </div>
+  </div>
+
+  <!-- Project 2 -->
+  <div class="project-wrapper reverse">
+    <div class="project-text">
+      <h2 class="project-title">PROJECT RAMANA'S ABODE</h2>
+      <p><strong>Category:</strong> Residential</p>
+      <p><strong>Location:</strong> Chennai</p>
+      <p>
+        A calming blend of natural materials and subtle tones creates a modern sanctuary. 
+        Designed with open layouts and flowing spaces, the home embraces both functionality 
+        and beauty, reflecting the client’s lifestyle and personality.
+      </p>
+      <p>
+        Every corner is crafted with care — from bespoke furniture to curated art pieces, 
+        ensuring an elegant yet inviting atmosphere.
+      </p>
+    </div>
+    <div class="project-image">
+      <img src="imgs/03.jpg" alt="Project Priya's Sanctuary Interior">
+    </div>
+  </div>
+
+  <!-- Project 3 -->
+  <div class="project-wrapper">
+    <div class="project-text">
+      <h2 class="project-title">PROJECT SUJO RESIDENCE</h2>
+      <p><strong>Category:</strong> Residential</p>
+      <p><strong>Location:</strong> Chennai</p>
+      <p>
+        Designed as a peaceful retreat, this home combines contemporary minimalism with 
+        warm accents. The interiors flow seamlessly with natural light, bringing comfort 
+        and sophistication to everyday living.
+      </p>
+      <p>
+        Neutral textures, sleek finishes, and custom details create a modern yet timeless space.
+      </p>
+    </div>
+    <div class="project-image">
+      <img src="imgs/01_Page_04.jpg" alt="Project Tranquil Nest Interior">
+    </div>
+  </div>
+</section>
+<!-- 🌿 Project Section End -->
+
+
+<!-- 🌿 CSS Styling -->
+<style>
+  .logo img {
+    height: 280px; /* adjust as needed */
+    width: auto;   /* keeps aspect ratio */
+  }
+
+  .project-heading {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #436543;
+    font-family: 'Cormorant Garamond', serif;
+    margin-bottom: 2.5rem;
+  }
+
+  .project-section {
+    background: #fff;
+    padding: 80px 8%; /* more breathing space */
+    font-family: "Georgia", serif;
+    color: #2f2f2f;
+  }
+
+  .project-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;            /* bigger gap between text & image */
+    margin-bottom: 80px;  /* more space between projects */
+  }
+
+  .project-wrapper:last-child {
+    margin-bottom: 0; /* remove extra gap after last project */
+  }
+
+  .project-wrapper.reverse {
+    flex-direction: row-reverse;
+  }
+
+  .project-text {
+    flex: 1;
+  }
+
+  .project-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-family: "Times New Roman", serif;
+    text-transform: uppercase;
+  }
+
+  .project-text p {
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+  }
+
+  .project-logos img {
+    height: 28px;
+    margin-right: 20px;
+    vertical-align: middle;
+  }
+
+  .project-image {
+    flex: 1;
+  }
+
+  .project-image img {
+    width: 100%;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* subtle shadow */
+  }
+
+  /* Footer styles remain same */
+  .footer-nav-section {
+    text-align: center;
+    padding: 40px 8% 60px;
+    background: #fff;
+  }
+
+  .footer-nav {
+    margin-bottom: 20px;
+  }
+
+  .footer-nav a {
+    margin: 0 15px;
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #2f2f2f;
+    transition: color 0.3s ease;
+  }
+
+  .footer-nav a:hover {
+    color: #4a5c3f;
+  }
+
+  .footer-banner img {
+    width: 100%;
+    border-radius: 6px;
+    margin: 20px 0;
+  }
+
+  .footer-btn {
+    margin-top: 20px;
+  }
+
+  .view-more-btn {
+    background: #4a5c3f;
+    color: #fff;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .view-more-btn:hover {
+    background: #36452d;
+  }
+
+  /* 🌿 Responsive */
+  @media(max-width: 900px) {
+    .project-wrapper {
+      flex-direction: column;
+      text-align: center;
+      gap: 30px;
+      margin-bottom: 60px; /* less space on smaller screens */
+    }
+
+    .project-wrapper.reverse {
+      flex-direction: column;
+    }
+
+    .project-text {
+      text-align: left; /* better readability on mobile */
+    }
+
+    .project-image img {
+      margin-top: 10px;
+    }
+  }
+</style>
+
+    <!-- 🌿 Project Gera Abode Section End -->
+
+    <!-- 🌿 Client Testimonials Section -->
+    <section class="testimonials" aria-label="Client testimonials">
+      <div class="container">
+        <h2>CLIENT TESTIMONIALS</h2>
+
+        <div class="slider" id="slider">
+          <!-- slides -->
+          <article class="slide active" data-index="0">
+            <p class="quote">Rinisha and her team took the time to understand our stories, transforming them into a home that feels uniquely ours. From the teal-green kitchen to the Rajasthan-inspired main door, every detail reflects thoughtfulness and care.</p>
+            <div class="author">Regards : Manas Gera</div>
+            <div class="project">Project Priya's Sanctuary</div>
+          </article>
+
+          <article class="slide" data-index="1">
+            <p class="quote">Working with Rinisha felt like collaborating with a friend who knows design intimately. They listened, advised and executed with patience. The end result exceeded our expectations.</p>
+            <div class="author">Regards : Aarti Shah</div>
+            <div class="project">Project Ramana's Abode</div>
+          </article>
+
+          <article class="slide" data-index="2">
+            <p class="quote">The team transformed a cramped space into an airy sanctuary. Thoughtful storage, layered lighting and exquisite finishes — every corner now tells a story.</p>
+            <div class="author">Regards : Vikram Patel</div>
+            <div class="project">Project Sujo Residence</div>
+          </article>
+
+      
+
+          <!-- navigation dots -->
+          <div class="dots" id="dots" role="tablist">
+            <button class="dot active" data-index="0"></button>
+            <button class="dot" data-index="1"></button>
+            <button class="dot" data-index="2"></button>
+            <button class="dot" data-index="3"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🌿 Contact Section -->
+    <section class="contact" id="contact">
+      <div class="contact-container">
+        <!-- Left: Form -->
+        <div class="contact-form">
+          <h2>CONTACT</h2>
+          <form>
+            <div class="form-row">
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" placeholder="First Name" required>
+              </div>
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" placeholder="Last Name">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Email *</label>
+              <input type="email" placeholder="Email" required>
+            </div>
+
+            <div class="form-group">
+              <label>Message</label>
+              <textarea rows="4" placeholder="Your message"></textarea>
+            </div>
+
+            <button type="submit" class="send-btn">Send</button>
+          </form>
+        </div>
+
+        <!-- Right: Info -->
+        <div class="contact-info">
+          <h2>GET IN<br>TOUCH</h2>
+          <p>Anna Nagar, Chennai,<br>Tamil Nadu, India</p>
+          <p><a href="tel:+91 97909 07004">+91 97909 07004</a></p>
+          <p><a href="mailto:designsbyriha@gmail.com">designsbyriha@gmail.com</a></p>
+          <div class="socials">
+            <a href="https://www.instagram.com/riha_design_studio/?hl=en"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/riha_design_studio/?hl=en"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🌿 Testimonials + Contact CSS -->
+    <style>
+      /* --- Testimonials --- */
+      .testimonials{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        padding:80px 20px;
+        background:#fff;
+      }
+      .testimonials .container{
+        width:100%;
+        max-width:900px;
+        text-align:center;
+        position:relative;
+      }
+      .testimonials .container::before,
+      .testimonials .container::after{
+        content:"";
+        position:absolute;
+        left:50%;
+        width:1px;
+        height:60px;
+        background:linear-gradient(#e6e6e6,#dcdcdc);
+        transform:translateX(-50%);
+      }
+      .testimonials .container::before{top:0}
+      .testimonials .container::after{bottom:0}
+
+      .testimonials h2{
+        font-family:'Cinzel', serif;
+        letter-spacing:3px;
+        font-size:40px;
+        margin:30px 0 24px;
+        color:#6b8a7f;
+        font-weight:400;
+      }
+      .slider{
+        max-width:760px;
+        margin:0 auto;
+        position:relative;
+      }
+      .slide{
+        padding:0 24px 28px;
+        min-height:120px;
+        opacity:0;
+        transition:opacity .6s ease, transform .6s ease;
+        transform:translateY(8px);
+        position:absolute;
+        left:0;right:0;
+      }
+      .slide.active{
+        opacity:1;
+        transform:translateY(0);
+        position:relative;
+      }
+      .quote{
+        font-size:16px;
+        line-height:1.6;
+        color:#274033;
+        margin:0 auto 18px;
+        max-width:720px;
+        font-weight:300;
+      }
+      .author{
+        font-size:15px;
+        margin-top:8px;
+        font-weight:600;
+      }
+      .project{
+        font-size:14px;
+        margin-top:6px;
+        opacity:.8;
+        font-weight:400;
+      }
+      .dots{
+        display:flex;
+        gap:12px;
+        justify-content:center;
+        margin-top:28px;
+      }
+      .dot{
+        width:10px;height:10px;border-radius:999px;background:#cfd6d0;
+        cursor:pointer;
+        transition:transform .18s ease, background .18s ease, opacity .18s ease;
+        opacity:.9;
+      }
+      .dot.active{background:#6b8a7f;transform:scale(1.08)}
+      @media (max-width:520px){
+        .testimonials h2{font-size:28px}
+        .quote{font-size:15px}
+      }
+
+      /* --- Contact --- */
+      .contact {
+        background-color: #3f5446;
+        color: #fff;
+        padding: 80px 20px;
+        font-family: 'Montserrat', sans-serif;
+      }
+      .contact-container {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 1100px;
+        margin: auto;
+        gap: 40px;
+      }
+      .contact-form, .contact-info {
+        flex: 1;
+        min-width: 300px;
+      }
+      .contact-form h2, .contact-info h2 {
+        font-family: 'Cinzel', serif;
+        font-size: 28px;
+        margin-bottom: 20px;
+      }
+      .form-row {
+        display: flex;
+        gap: 20px;
+      }
+      .form-group {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+      }
+      .form-group label {
+        font-size: 14px;
+        margin-bottom: 6px;
+        opacity: 0.9;
+      }
+      input, textarea {
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #fff;
+        padding: 8px 4px;
+        color: #fff;
+        font-size: 15px;
+      }
+      input:focus, textarea:focus {
+        outline: none;
+        border-bottom-color: #cfd6d0;
+      }
+      .send-btn {
+        background: #fff;
+        color: #3f5446;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s;
+      }
+      .send-btn:hover {
+        background: #cfd6d0;
+      }
+      .contact-info p {
+        margin: 10px 0;
+        font-size: 15px;
+      }
+      .contact-info a {
+        color: #fff;
+        text-decoration: none;
+      }
+      .socials {
+        margin-top: 15px;
+        display: flex;
+        gap: 15px;
+        font-size: 22px;
+      }
+      .ig a {
+  color: #2f2f2f;  /* default color */
+  font-size: 24px; /* adjust size */
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.ig a:hover {
+  color: #E4405F; /* Instagram pink */
+}
+
+    </style>
+
+    <!-- 🌿 Testimonials Slider JS -->
+    <script>
+      (function(){
+        const slides = Array.from(document.querySelectorAll('.slide'));
+        const dots = Array.from(document.querySelectorAll('.dot'));
+        let current = 0;
+        let timer = null;
+        const interval = 4500;
+
+        function show(index){
+          if(index === current) return;
+          slides[current].classList.remove('active');
+          dots[current].classList.remove('active');
+          slides[index].classList.add('active');
+          dots[index].classList.add('active');
+          current = index;
+        }
+
+        function next(){
+          const nxt = (current + 1) % slides.length;
+          show(nxt);
+        }
+
+        dots.forEach(d => d.addEventListener('click', e => {
+          const i = Number(e.currentTarget.dataset.index);
+          show(i);
+          resetTimer();
+        }))
+
+        function startTimer(){
+          timer = setInterval(next, interval);
+        }
+        function resetTimer(){
+          clearInterval(timer);
+          startTimer();
+        }
+
+        const slider = document.getElementById('slider');
+        slider.addEventListener('mouseenter', ()=> clearInterval(timer));
+        slider.addEventListener('mouseleave', ()=> startTimer());
+
+        startTimer();
+
+        slider.tabIndex = 0;
+        slider.addEventListener('keydown', (e)=>{
+          if(e.key === 'ArrowRight') { show((current+1)%slides.length); resetTimer(); }
+          if(e.key === 'ArrowLeft') { show((current-1+slides.length)%slides.length); resetTimer(); }
+        });
+      })();
+    </script>
+
+    <!-- FontAwesome for contact icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-left">
+        <div class="ig">
+  <a href="https://www.instagram.com/riha_design_studio/?hl=en" target="_blank" aria-label="Instagram">
+    <i class="fab fa-instagram"></i>
+  </a>
+</div>
+
+
+        <div>© 2025 by Riha Design Studio</div>
+      </div>
+
+      <div class="footer-right">
+        <div>+91 97909 07004</div>
+        <div style="margin-top:6px">designsbyriha@gmail.com</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // fade-in animation
+    document.addEventListener('DOMContentLoaded', function(){
+      requestAnimationFrame(()=> {
+        document.querySelectorAll('.fade-in').forEach((el,i)=>{
+          setTimeout(()=> el.classList.add('show'), i*90);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
