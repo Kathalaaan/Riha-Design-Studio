@@ -6,13 +6,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-
   <title>Riha Design Studio</title>
-<link rel="icon" type="image/png" href="imgs/Untitled design (87).png">
+  <link rel="icon" type="image/png" href="imgs/Untitled design (87).png">
   <link rel="icon" href="imgs/Untitled design (87).png" sizes="32x32" type="image/png">
-<link rel="icon" href="imgs/Untitled design (87).png" sizes="16x16" type="image/png">
-<link rel="apple-touch-icon" href="imgs/Untitled design (87).png">
-
+  <link rel="icon" href="imgs/Untitled design (87).png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="imgs/Untitled design (87).png">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:opsz,wght@7..60,400;7..60,700&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
@@ -79,18 +77,33 @@
       position:relative;
       overflow:hidden;
     }
-    .hero-bg{
-      position:absolute;inset:0;
-      background-image:  url("imgs/Untitled\ design\ \(83\).png");
+
+    /* Hero Slider */
+    .hero-slider{
+      position:absolute; inset:0;
+      z-index:1;
+      overflow:hidden;
+    }
+    .hero-slide{
+      position:absolute; inset:0;
       background-size:cover;
       background-position:center center;
-      filter: saturate(0.85) contrast(0.95);
-      transform: scale(1.02);
+      transform:scale(1.02);
+      opacity:0;
+      transition:opacity .9s ease-in-out, transform .9s ease-in-out;
+      will-change: opacity, transform;
+      filter: saturate(0.9) contrast(0.95);
     }
+    .hero-slide.is-active{
+      opacity:1;
+      transform:scale(1.0);
+    }
+
     .hero-overlay{
       position:absolute;inset:0;
       background:linear-gradient(rgba(22,22,22,0.28), rgba(22,22,22,0.28));
       mix-blend-mode: multiply;
+      z-index:2;
     }
 
     .hero-content{
@@ -138,6 +151,7 @@
       padding:8px 14px;
       border-radius:4px;
       pointer-events:auto;
+      z-index:3;
     }
 
     /* ---------- About Section ---------- */
@@ -254,9 +268,9 @@
     <div class="container">
       <div class="nav">
         <div class="brand">
-         <div class="logo" aria-hidden="true">
-  <img src="imgs/Untitled design (84).png" alt="Company Logo">
-</div>
+          <div class="logo" aria-hidden="true">
+            <img src="imgs/Untitled design (84).png" alt="Company Logo">
+          </div>
         </div>
 
         <nav aria-label="Top navigation">
@@ -275,7 +289,14 @@
   <main>
     <!-- Hero Section -->
     <section class="hero-wrap" id="home" role="region" aria-label="Hero">
-      <div class="hero-bg" role="img" aria-label="Hero background"></div>
+      <!-- 4-image auto slider -->
+      <div class="hero-slider" aria-label="Hero image slider" role="region" tabindex="0">
+        <div class="hero-slide is-active" style="background-image:url('imgs/Untitled design (83).png');"></div>
+        <div class="hero-slide"          style="background-image:url('imgs/1.png');"></div>
+        <div class="hero-slide"          style="background-image:url('imgs/2.png');"></div>
+        <div class="hero-slide"          style="background-image:url('imgs/3.png');"></div>
+      </div>
+
       <div class="hero-overlay"></div>
 
       <div class="hero-content">
@@ -292,41 +313,40 @@
     <section id="about" class="about-section">
       <div class="about-container">
         <div class="about-text">
-          <h2>ABOUT US</h2>
-          <p>
-  At RIHA Design Studio, our philosophy is rooted in the belief that design is not just about spaces. 
-  It’s about shaping experiences. As the founder and principal architect, I envisioned a studio that goes 
-  beyond conventional boundaries, integrating architecture, interior design, and turnkey solutions under one roof.
-</p>
-<p>
-  Our approach is holistic.<br>
-  We design with intention, build with precision, and deliver with passion. Every project we undertake is a 
-  reflection of our commitment to thoughtful design, contextual sensitivity, and functional elegance. 
-  From concept to completion, we ensure each space resonates with the people who inhabit it.
-</p>
-<p>
-  RIHA is more than a studio; it is a collaborative platform where creativity meets craftsmanship. 
-  We strive to transform ideas into spaces that inspire, nurture, and elevate everyday living.
-</p>
-<p>
-  Welcome to our world of design.
-</p>
-
-        </div>
+  <h2>ABOUT US</h2>
+  <p>
+    Just a girl with big dreams and a passion for design exploring every corner of creativity.
+    Our journey started when a client resonated with our design language and trusted us with our very first 360° renovation — from floor to ceiling.
+    Despite a tight budget and an even tighter timeline, we took on the challenge, delivered our first project, and most importantly… made our clients happy.
+  </p>
+  <p>
+    Fast forward a year, and <strong>RIHA Design Studio</strong> was born.
+    Today, we’re proud to have ongoing projects in <strong>Chennai, Bangalore, Thrissur, Yercaud, Yelagiri, Kodaikanal</strong>, and more exciting locations to come.
+  </p>
+  <p>
+    This journey has been nothing short of thrilling — full of learning, growth, and endless inspiration.
+  </p>
+  <p>
+    Celebrating three amazing years today. 💛<br>
+    Thank you for all the love and support — keep cheering us on!
+  </p>
+</div>
 
         <div class="about-image">
-          <img src="imgs/Untitled design (85).png" alt="About Shreya Mago Designs" />
+          <img src="imgs/32.jpeg" alt="About Shreya Mago Designs" />
         </div>
       </div>
     </section>
     
+  
 
-<!-- 🌿 Project Section Start -->
-<section class="project-section">
+  <!-- 🌿 Project Section Start -->
+<section class="project-section" id="projects">
   <h1 class="project-heading">Projects</h1>
 
   <!-- Project 1 -->
-  <div class="project-wrapper">
+  <div class="project-wrapper"
+       data-gallery="imgs/ri.JPG|imgs/21.jpg|imgs/22.jpg|imgs/23.jfif">
     <div class="project-text">
       <h2 class="project-title">PROJECT PRIYA'S SANCTUARY</h2>
       <p><strong>Category:</strong> Residential</p>
@@ -349,7 +369,8 @@
   </div>
 
   <!-- Project 2 -->
-  <div class="project-wrapper reverse">
+  <div class="project-wrapper reverse"
+       data-gallery="imgs/03.jpg|imgs/31.jpeg|imgs/35.jpeg|imgs/33.jpeg|imgs/34.jpeg">
     <div class="project-text">
       <h2 class="project-title">PROJECT RAMANA'S ABODE</h2>
       <p><strong>Category:</strong> Residential</p>
@@ -369,8 +390,11 @@
     </div>
   </div>
 
+  
+
   <!-- Project 3 -->
-  <div class="project-wrapper">
+  <div class="project-wrapper"
+       data-gallery="imgs/01_Page_04.jpg|imgs/41.jpeg|imgs/42.jpeg|imgs/43.jpeg|imgs/44.jpeg|imgs/45.jpeg">
     <div class="project-text">
       <h2 class="project-title">PROJECT SUJO RESIDENCE</h2>
       <p><strong>Category:</strong> Residential</p>
@@ -388,195 +412,292 @@
       <img src="imgs/01_Page_04.jpg" alt="Project Tranquil Nest Interior">
     </div>
   </div>
+
+    <!-- Project 2 -->
+  <div class="project-wrapper reverse"
+       data-gallery="imgs/51.jfif|imgs/52.jfif|imgs/53.jfif|imgs/54.jfif|imgs/55.jfif">
+    <div class="project-text">
+      <h2 class="project-title">PROJECT Terkuú Veedu</h2>
+      <p><strong>Category:</strong> Residential</p>
+      <p><strong>Location:</strong> West Mamblam</p>
+      <p>
+        A calming blend of natural materials and subtle tones creates a modern sanctuary. 
+        Designed with open layouts and flowing spaces, the home embraces both functionality 
+        and beauty, reflecting the client’s lifestyle and personality.
+      </p>
+      <p>
+        Every corner is crafted with care — from bespoke furniture to curated art pieces, 
+        ensuring an elegant yet inviting atmosphere.
+      </p>
+    </div>
+    <div class="project-image">
+      <img src="imgs/51.jfif" alt="Project Priya's Sanctuary Interior">
+    </div>
+  </div>
+
 </section>
 <!-- 🌿 Project Section End -->
 
 
-<!-- 🌿 CSS Styling -->
-<style>
-  .logo img {
-    height: 280px; /* adjust as needed */
-    width: auto;   /* keeps aspect ratio */
-  }
+    <!-- 🌿 CSS Styling -->
+    <style>
+      .logo img {
+        height: 280px; /* adjust as needed */
+        width: auto;   /* keeps aspect ratio */
+      }
 
-  .project-heading {
-    text-align: center;
-    font-size: 2.8rem;
-    font-weight: 500;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #436543;
-    font-family: 'Cormorant Garamond', serif;
-    margin-bottom: 2.5rem;
-  }
+     .project-heading {
+  text-align: center;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 34px;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: var(--accent-green);
+  text-transform: uppercase;
+  margin-bottom: 60px;
+}
 
-  .project-section {
-    background: #fff;
-    padding: 80px 8%; /* more breathing space */
-    font-family: "Georgia", serif;
-    color: #2f2f2f;
-  }
 
-  .project-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 60px;            /* bigger gap between text & image */
-    margin-bottom: 80px;  /* more space between projects */
-  }
+      .project-section {
+        background: #fff;
+        padding: 80px 8%;
+        font-family: "Georgia", serif;
+        color: #2f2f2f;
+      }
 
-  .project-wrapper:last-child {
-    margin-bottom: 0; /* remove extra gap after last project */
-  }
+      .project-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 60px;
+        margin-bottom: 80px;
+      }
 
-  .project-wrapper.reverse {
-    flex-direction: row-reverse;
-  }
+      .project-wrapper:last-child { margin-bottom: 0; }
+      .project-wrapper.reverse { flex-direction: row-reverse; }
 
-  .project-text {
-    flex: 1;
-  }
+      .project-text { flex: 1; }
 
-  .project-title {
-    font-size: 28px;
-    margin-bottom: 20px;
-    font-family: "Times New Roman", serif;
-    text-transform: uppercase;
-  }
+      .project-title {
+        font-size: 28px;
+        margin-bottom: 20px;
+        font-family: "Times New Roman", serif;
+        text-transform: uppercase;
+      }
 
-  .project-text p {
-    font-size: 15px;
-    line-height: 1.8;
-    margin-bottom: 15px;
-  }
+      .project-text p {
+        font-size: 15px;
+        line-height: 1.8;
+        margin-bottom: 15px;
+      }
 
-  .project-logos img {
-    height: 28px;
-    margin-right: 20px;
-    vertical-align: middle;
-  }
+      .project-logos img {
+        height: 28px;
+        margin-right: 20px;
+        vertical-align: middle;
+      }
 
-  .project-image {
-    flex: 1;
-  }
-
-  .project-image img {
-    width: 100%;
-    border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* subtle shadow */
-  }
-
-  /* Footer styles remain same */
-  .footer-nav-section {
-    text-align: center;
-    padding: 40px 8% 60px;
-    background: #fff;
-  }
-
-  .footer-nav {
-    margin-bottom: 20px;
-  }
-
-  .footer-nav a {
-    margin: 0 15px;
-    font-size: 14px;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: #2f2f2f;
-    transition: color 0.3s ease;
-  }
-
-  .footer-nav a:hover {
-    color: #4a5c3f;
-  }
-
-  .footer-banner img {
-    width: 100%;
-    border-radius: 6px;
-    margin: 20px 0;
-  }
-
-  .footer-btn {
-    margin-top: 20px;
-  }
-
-  .view-more-btn {
-    background: #4a5c3f;
-    color: #fff;
-    border: none;
-    padding: 12px 28px;
-    border-radius: 6px;
-    font-size: 15px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-
-  .view-more-btn:hover {
-    background: #36452d;
-  }
-
-  /* 🌿 Responsive */
-  @media(max-width: 900px) {
-    .project-wrapper {
-      flex-direction: column;
-      text-align: center;
-      gap: 30px;
-      margin-bottom: 60px; /* less space on smaller screens */
-    }
-
-    .project-wrapper.reverse {
-      flex-direction: column;
-    }
-
-    .project-text {
-      text-align: left; /* better readability on mobile */
-    }
+      .project-image { flex: 1; }
 
     .project-image img {
-      margin-top: 10px;
-    }
+  width: 100%;
+  border-radius: 0; /* removes rounded corners */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+
+      /* Footer styles remain same */
+      .footer-nav-section {
+        text-align: center;
+        padding: 40px 8% 60px;
+        background: #fff;
+      }
+
+      .footer-nav { margin-bottom: 20px; }
+
+      .footer-nav a {
+        margin: 0 15px;
+        font-size: 14px;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #2f2f2f;
+        transition: color 0.3s ease;
+      }
+
+      .footer-nav a:hover { color: #4a5c3f; }
+
+      .footer-banner img {
+        width: 100%;
+        border-radius: 6px;
+        margin: 20px 0;
+      }
+
+      .footer-btn { margin-top: 20px; }
+
+      .view-more-btn {
+        background: #4a5c3f;
+        color: #fff;
+        border: none;
+        padding: 12px 28px;
+        border-radius: 6px;
+        font-size: 15px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      .view-more-btn:hover { background: #36452d; }
+
+      /* 🌿 Responsive */
+      @media(max-width: 900px) {
+        .project-wrapper {
+          flex-direction: column;
+          text-align: center;
+          gap: 30px;
+          margin-bottom: 60px;
+        }
+        .project-wrapper.reverse { flex-direction: column; }
+        .project-text { text-align: left; }
+        .project-image img { margin-top: 10px; }
+      }
+    </style>
+
+  <!-- 🌿 Client Testimonials Section -->
+<section class="testimonials" aria-label="Client testimonials">
+  <div class="container">
+    <h2>CLIENT TESTIMONIAL</h2>
+
+    <!-- 🎥 Reel-style phone frame video -->
+    <div class="phone-frame">
+      <div class="phone-notch"></div>
+      <video id="testimonialVideo" muted loop autoplay playsinline>
+        <source src="imgs/test.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="video-overlay">Tap to Unmute</div>
+    </div>
+  </div>
+</section>
+
+<!-- 🌿 Testimonials CSS -->
+<style>
+.testimonials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 80px 20px;
+  background: #fff;
+}
+
+.testimonials .container {
+  width: 100%;
+  max-width: 900px;
+  text-align: center;
+  position: relative;
+}
+
+.testimonials h2 {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 3px;
+  font-size: 40px;
+  margin: 30px 0 40px;
+  color: #6b8a7f;
+  font-weight: 400;
+}
+
+/* 📱 Phone Frame Style */
+.phone-frame {
+  position: relative;
+  width: 320px;       /* phone width */
+  height: 570px;      /* phone height for 9:16 ratio */
+  margin: 0 auto;
+  background: #000;
+  border: 12px solid #111;
+  border-radius: 36px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Small top notch to simulate a phone */
+.phone-notch {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 18px;
+  background: #000;
+  border-radius: 10px;
+  z-index: 2;
+}
+
+/* 🎥 Vertical video (reel style) */
+.phone-frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  display: block;
+  cursor: pointer;
+}
+
+/* Overlay text */
+.video-overlay {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.5px;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+@media (max-width: 520px) {
+  .testimonials h2 {
+    font-size: 28px;
   }
+
+  .phone-frame {
+    width: 260px;
+    height: 470px;
+  }
+
+  .video-overlay {
+    font-size: 12px;
+    padding: 4px 10px;
+  }
+}
 </style>
 
-    <!-- 🌿 Project Gera Abode Section End -->
+<!-- 🌿 Video Script -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const video = document.getElementById("testimonialVideo");
+  const overlay = document.querySelector(".video-overlay");
 
-    <!-- 🌿 Client Testimonials Section -->
-    <section class="testimonials" aria-label="Client testimonials">
-      <div class="container">
-        <h2>CLIENT TESTIMONIALS</h2>
+  video.addEventListener("click", () => {
+    if (video.muted) {
+      video.muted = false;
+      overlay.textContent = "Tap to Mute";
+      overlay.style.opacity = "0.7";
+    } else {
+      video.muted = true;
+      overlay.textContent = "Tap to Unmute";
+      overlay.style.opacity = "0.85";
+    }
+  });
+});
+</script>
 
-        <div class="slider" id="slider">
-          <!-- slides -->
-          <article class="slide active" data-index="0">
-            <p class="quote">Rinisha and her team took the time to understand our stories, transforming them into a home that feels uniquely ours. From the teal-green kitchen to the Rajasthan-inspired main door, every detail reflects thoughtfulness and care.</p>
-            <div class="author">Regards : Manas Gera</div>
-            <div class="project">Project Priya's Sanctuary</div>
-          </article>
 
-          <article class="slide" data-index="1">
-            <p class="quote">Working with Rinisha felt like collaborating with a friend who knows design intimately. They listened, advised and executed with patience. The end result exceeded our expectations.</p>
-            <div class="author">Regards : Aarti Shah</div>
-            <div class="project">Project Ramana's Abode</div>
-          </article>
-
-          <article class="slide" data-index="2">
-            <p class="quote">The team transformed a cramped space into an airy sanctuary. Thoughtful storage, layered lighting and exquisite finishes — every corner now tells a story.</p>
-            <div class="author">Regards : Vikram Patel</div>
-            <div class="project">Project Sujo Residence</div>
-          </article>
-
-      
-
-          <!-- navigation dots -->
-          <div class="dots" id="dots" role="tablist">
-            <button class="dot active" data-index="0"></button>
-            <button class="dot" data-index="1"></button>
-            <button class="dot" data-index="2"></button>
-            <button class="dot" data-index="3"></button>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- 🌿 Contact Section -->
     <section class="contact" id="contact">
@@ -626,97 +747,7 @@
 
     <!-- 🌿 Testimonials + Contact CSS -->
     <style>
-      /* --- Testimonials --- */
-      .testimonials{
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        padding:80px 20px;
-        background:#fff;
-      }
-      .testimonials .container{
-        width:100%;
-        max-width:900px;
-        text-align:center;
-        position:relative;
-      }
-      .testimonials .container::before,
-      .testimonials .container::after{
-        content:"";
-        position:absolute;
-        left:50%;
-        width:1px;
-        height:60px;
-        background:linear-gradient(#e6e6e6,#dcdcdc);
-        transform:translateX(-50%);
-      }
-      .testimonials .container::before{top:0}
-      .testimonials .container::after{bottom:0}
-
-      .testimonials h2{
-        font-family:'Cinzel', serif;
-        letter-spacing:3px;
-        font-size:40px;
-        margin:30px 0 24px;
-        color:#6b8a7f;
-        font-weight:400;
-      }
-      .slider{
-        max-width:760px;
-        margin:0 auto;
-        position:relative;
-      }
-      .slide{
-        padding:0 24px 28px;
-        min-height:120px;
-        opacity:0;
-        transition:opacity .6s ease, transform .6s ease;
-        transform:translateY(8px);
-        position:absolute;
-        left:0;right:0;
-      }
-      .slide.active{
-        opacity:1;
-        transform:translateY(0);
-        position:relative;
-      }
-      .quote{
-        font-size:16px;
-        line-height:1.6;
-        color:#274033;
-        margin:0 auto 18px;
-        max-width:720px;
-        font-weight:300;
-      }
-      .author{
-        font-size:15px;
-        margin-top:8px;
-        font-weight:600;
-      }
-      .project{
-        font-size:14px;
-        margin-top:6px;
-        opacity:.8;
-        font-weight:400;
-      }
-      .dots{
-        display:flex;
-        gap:12px;
-        justify-content:center;
-        margin-top:28px;
-      }
-      .dot{
-        width:10px;height:10px;border-radius:999px;background:#cfd6d0;
-        cursor:pointer;
-        transition:transform .18s ease, background .18s ease, opacity .18s ease;
-        opacity:.9;
-      }
-      .dot.active{background:#6b8a7f;transform:scale(1.08)}
-      @media (max-width:520px){
-        .testimonials h2{font-size:28px}
-        .quote{font-size:15px}
-      }
-
+     
       /* --- Contact --- */
       .contact {
         background-color: #3f5446;
@@ -731,30 +762,15 @@
         margin: auto;
         gap: 40px;
       }
-      .contact-form, .contact-info {
-        flex: 1;
-        min-width: 300px;
-      }
+      .contact-form, .contact-info { flex: 1; min-width: 300px; }
       .contact-form h2, .contact-info h2 {
         font-family: 'Cinzel', serif;
         font-size: 28px;
         margin-bottom: 20px;
       }
-      .form-row {
-        display: flex;
-        gap: 20px;
-      }
-      .form-group {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 20px;
-      }
-      .form-group label {
-        font-size: 14px;
-        margin-bottom: 6px;
-        opacity: 0.9;
-      }
+      .form-row { display: flex; gap: 20px; }
+      .form-group { flex: 1; display: flex; flex-direction: column; margin-bottom: 20px; }
+      .form-group label { font-size: 14px; margin-bottom: 6px; opacity: 0.9; }
       input, textarea {
         background: transparent;
         border: none;
@@ -763,102 +779,18 @@
         color: #fff;
         font-size: 15px;
       }
-      input:focus, textarea:focus {
-        outline: none;
-        border-bottom-color: #cfd6d0;
-      }
+      input:focus, textarea:focus { outline: none; border-bottom-color: #cfd6d0; }
       .send-btn {
-        background: #fff;
-        color: #3f5446;
-        border: none;
-        padding: 10px 20px;
-        cursor: pointer;
-        font-weight: 600;
-        transition: all 0.3s;
+        background: #fff; color: #3f5446; border: none; padding: 10px 20px;
+        cursor: pointer; font-weight: 600; transition: all 0.3s;
       }
-      .send-btn:hover {
-        background: #cfd6d0;
-      }
-      .contact-info p {
-        margin: 10px 0;
-        font-size: 15px;
-      }
-      .contact-info a {
-        color: #fff;
-        text-decoration: none;
-      }
-      .socials {
-        margin-top: 15px;
-        display: flex;
-        gap: 15px;
-        font-size: 22px;
-      }
-      .ig a {
-  color: #2f2f2f;  /* default color */
-  font-size: 24px; /* adjust size */
-  margin: 0 10px;
-  transition: color 0.3s ease;
-}
-
-.ig a:hover {
-  color: #E4405F; /* Instagram pink */
-}
-
+      .send-btn:hover { background: #cfd6d0; }
+      .contact-info p { margin: 10px 0; font-size: 15px; }
+      .contact-info a { color: #fff; text-decoration: none; }
+      .socials { margin-top: 15px; display: flex; gap: 15px; font-size: 22px; }
+      .ig a { color: #2f2f2f; font-size: 24px; margin: 0 10px; transition: color 0.3s ease; }
+      .ig a:hover { color: #E4405F; }
     </style>
-
-    <!-- 🌿 Testimonials Slider JS -->
-    <script>
-      (function(){
-        const slides = Array.from(document.querySelectorAll('.slide'));
-        const dots = Array.from(document.querySelectorAll('.dot'));
-        let current = 0;
-        let timer = null;
-        const interval = 4500;
-
-        function show(index){
-          if(index === current) return;
-          slides[current].classList.remove('active');
-          dots[current].classList.remove('active');
-          slides[index].classList.add('active');
-          dots[index].classList.add('active');
-          current = index;
-        }
-
-        function next(){
-          const nxt = (current + 1) % slides.length;
-          show(nxt);
-        }
-
-        dots.forEach(d => d.addEventListener('click', e => {
-          const i = Number(e.currentTarget.dataset.index);
-          show(i);
-          resetTimer();
-        }))
-
-        function startTimer(){
-          timer = setInterval(next, interval);
-        }
-        function resetTimer(){
-          clearInterval(timer);
-          startTimer();
-        }
-
-        const slider = document.getElementById('slider');
-        slider.addEventListener('mouseenter', ()=> clearInterval(timer));
-        slider.addEventListener('mouseleave', ()=> startTimer());
-
-        startTimer();
-
-        slider.tabIndex = 0;
-        slider.addEventListener('keydown', (e)=>{
-          if(e.key === 'ArrowRight') { show((current+1)%slides.length); resetTimer(); }
-          if(e.key === 'ArrowLeft') { show((current-1+slides.length)%slides.length); resetTimer(); }
-        });
-      })();
-    </script>
-
-    <!-- FontAwesome for contact icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
   </main>
 
@@ -866,12 +798,10 @@
     <div class="footer-grid">
       <div class="footer-left">
         <div class="ig">
-  <a href="https://www.instagram.com/riha_design_studio/?hl=en" target="_blank" aria-label="Instagram">
-    <i class="fab fa-instagram"></i>
-  </a>
-</div>
-
-
+          <a href="https://www.instagram.com/riha_design_studio/?hl=en" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
         <div>© 2025 by Riha Design Studio</div>
       </div>
 
@@ -882,8 +812,8 @@
     </div>
   </footer>
 
+  <!-- Fade-in animation -->
   <script>
-    // fade-in animation
     document.addEventListener('DOMContentLoaded', function(){
       requestAnimationFrame(()=> {
         document.querySelectorAll('.fade-in').forEach((el,i)=>{
@@ -892,7 +822,243 @@
       });
     });
   </script>
+
+  <!-- Testimonials slider -->
+  <script>
+    (function(){
+      const slides = Array.from(document.querySelectorAll('.slide'));
+      const dots = Array.from(document.querySelectorAll('.dot'));
+      let current = 0;
+      let timer = null;
+      const interval = 4500;
+
+      function show(index){
+        if(index === current) return;
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+        current = index;
+      }
+
+      function next(){
+        const nxt = (current + 1) % slides.length;
+        show(nxt);
+      }
+
+      dots.forEach(d => d.addEventListener('click', e => {
+        const i = Number(e.currentTarget.dataset.index);
+        show(i);
+        resetTimer();
+      }))
+
+      function startTimer(){
+        timer = setInterval(next, interval);
+      }
+      function resetTimer(){
+        clearInterval(timer);
+        startTimer();
+      }
+
+      const slider = document.getElementById('slider');
+      slider.addEventListener('mouseenter', ()=> clearInterval(timer));
+      slider.addEventListener('mouseleave', ()=> startTimer());
+
+      startTimer();
+
+      slider.tabIndex = 0;
+      slider.addEventListener('keydown', (e)=>{
+        if(e.key === 'ArrowRight') { show((current+1)%slides.length); resetTimer(); }
+        if(e.key === 'ArrowLeft') { show((current-1+slides.length)%slides.length); resetTimer(); }
+      });
+    })();
+  </script>
+
+  <!-- Hero slider (auto, fade) -->
+  <script>
+    (function(){
+      const slides = Array.from(document.querySelectorAll('.hero-slide'));
+      if(!slides.length) return;
+
+      let index = 0;
+      const DURATION = 2200; // ms per slide
+      let timer = null;
+
+      function show(i){
+        slides[index].classList.remove('is-active');
+        index = (i + slides.length) % slides.length;
+        slides[index].classList.add('is-active');
+      }
+
+      function next(){ show(index + 1); }
+      function start(){ timer = setInterval(next, DURATION); }
+      function stop(){ clearInterval(timer); }
+
+      // Start autoplay
+      start();
+
+      // Pause on hover / focus
+      const slider = document.querySelector('.hero-slider');
+      slider.addEventListener('mouseenter', stop);
+      slider.addEventListener('mouseleave', start);
+      slider.addEventListener('focusin', stop);
+      slider.addEventListener('focusout', start);
+
+      // Keyboard support
+      slider.addEventListener('keydown', (e)=>{
+        if(e.key === 'ArrowRight'){ stop(); next(); start(); }
+        if(e.key === 'ArrowLeft'){ stop(); show(index - 1); start(); }
+      });
+
+    
+    })();
+  </script>
+
+  <!-- FontAwesome for contact icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<!-- Fullscreen Lightbox (global) -->
+<div id="lightbox" class="lightbox" aria-modal="true" role="dialog">
+  <button class="close-btn" id="lightboxClose" aria-label="Close">&times;</button>
+  <img class="lightbox-img" id="lightboxImg" alt="Full view">
+  <button class="nav-btn prev" id="prevBtn" aria-label="Previous">&#10094;</button>
+  <button class="nav-btn next" id="nextBtn" aria-label="Next">&#10095;</button>
+</div>
+
+<style>/* 🌿 Lightbox (Fullscreen Image Viewer) */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.lightbox.show {
+  display: flex;
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 0;
+  object-fit: contain;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+}
+
+.close-btn {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 36px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 300;
+  transition: color 0.2s ease;
+}
+
+.close-btn:hover { color: #aaa; }
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  font-size: 40px;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  transition: background 0.3s ease;
+  user-select: none;
+}
+
+.nav-btn:hover { background: rgba(255,255,255,0.3); }
+
+.nav-btn.prev { left: 40px; }
+.nav-btn.next { right: 40px; }
+
+@media (max-width: 700px) {
+  .lightbox-img {
+    max-width: 95%;
+    max-height: 70vh;
+  }
+  .nav-btn {
+    font-size: 32px;
+    padding: 8px 14px;
+  }
+  .close-btn {
+    font-size: 30px;
+    right: 20px;
+  }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const closeBtn = document.getElementById("lightboxClose");
+  const nextBtn = document.getElementById("nextBtn");
+  const prevBtn = document.getElementById("prevBtn");
+
+  let currentGallery = [];
+  let currentIndex = 0;
+
+  // Click any project image to open its own gallery
+  document.querySelectorAll(".project-wrapper .project-image img").forEach(img => {
+    img.style.cursor = "zoom-in";
+    img.addEventListener("click", (e) => {
+      const wrapper = e.target.closest(".project-wrapper");
+      const raw = (wrapper.getAttribute("data-gallery") || "").trim();
+      if (!raw) return;
+
+      currentGallery = raw.split("|").map(s => s.trim()).filter(Boolean);
+      const clickedSrc = e.target.getAttribute("src");
+      const found = currentGallery.findIndex(u => u === clickedSrc);
+      currentIndex = found >= 0 ? found : 0;
+
+      openLightbox();
+    });
+  });
+
+  function openLightbox() {
+    if (!currentGallery.length) return;
+    lightbox.classList.add("show");
+    updateImage();
+  }
+  function closeLightbox() { lightbox.classList.remove("show"); }
+  function updateImage() { lightboxImg.src = currentGallery[currentIndex]; }
+  function next() { currentIndex = (currentIndex + 1) % currentGallery.length; updateImage(); }
+  function prev() { currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length; updateImage(); }
+
+  nextBtn.addEventListener("click", next);
+  prevBtn.addEventListener("click", prev);
+  closeBtn.addEventListener("click", closeLightbox);
+
+  // Click background to close
+  lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
+
+  // Keyboard nav
+  document.addEventListener("keydown", (e) => {
+    if (!lightbox.classList.contains("show")) return;
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+  });
+});
+</script>
+
+
 </body>
 </html>
-
-
