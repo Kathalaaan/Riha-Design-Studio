@@ -580,42 +580,12 @@
 
 <!-- 🌿 Testimonials CSS -->
 <style>
-  /* 🚫 Prevent horizontal scroll / sideways slide on mobile */
-html, body {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-  position: relative;
-  touch-action: pan-y; /* only allow vertical panning */
-}
+  html, body { overflow-x:hidden; touch-action: pan-y; }
 
-/* Ensure media never exceeds viewport width */
-img, video {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Contain paint for hero to avoid overflow during transitions */
-.hero-slider, .hero-slide, .hero-wrap {
-  contain: paint;
-  overflow: hidden;
-}
-
-@media (max-width: 780px){
-  .hero-slide { transform: none !important; }  /* stop 1.02 scale on mobile */
-}
-/* Make sure the phone frame never exceeds viewport width */
-.phone-frame {
-  max-width: 100vw;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Extra safety for its shadow not to trigger horizontal scroll */
-.testimonials {
-  overflow-x: clip; /* prevents shadow from creating horizontal scrollbars */
-}
+.hero-slider, .hero-slide, .hero-wrap { contain: paint; overflow:hidden; }
+@media (max-width:780px){ .hero-slide{ transform:none !important; } }
+.phone-frame{ max-width:100vw; margin-inline:auto; }
+.testimonials{ overflow-x:clip; }
 
 .testimonials {
   display: flex;
